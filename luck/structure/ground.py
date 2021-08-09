@@ -1,8 +1,12 @@
+from random import choice
+
 from pygame.image import load
 from pygame.sprite import Sprite
 from pygame.transform import scale
 
 from luck.commons.constants import BLOCK_SIZE
+
+metals = ["cross", "flat", "squares"]
 
 
 class MetalBlock(Sprite):
@@ -10,7 +14,7 @@ class MetalBlock(Sprite):
         super().__init__()
 
         self.image = scale(
-            load("luck/structure/metal_tile_flat.png"),
+            load(f"luck/structure/metal_tile_{choice(metals)}.png"),
             (BLOCK_SIZE, BLOCK_SIZE),
         )
 
